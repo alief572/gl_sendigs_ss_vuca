@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ./docker/apache
+    container_name: gl_sendigs_ss_stm
+    ports:
+      - "8081:80"
+    volumes:
+      - ./:/var/www/html                        # Mount your CI3 project folder
+      - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+      - ./docker/certs:/etc/apache2/certs
+      - ./docker/apache/conf.d:/etc/apache2/sites-available
+  
+
+  db:
+    image: mysql:8.0
+    container_name: db_sendigs_gl_ss
+    restart: always
+    ports:
+      - "3307:3307"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    command: --sql-mode="STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION"
+    volumes:
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql

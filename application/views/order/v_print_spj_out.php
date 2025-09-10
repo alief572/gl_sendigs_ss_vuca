@@ -1,0 +1,219 @@
+<style type="text/css">
+@page {
+	margin-top: 0.5cm;
+	margin-bottom: 0.5cm;
+    margin-left: 1cm;
+    margin-right: 1cm;
+}
+.font{
+	font-family: verdana,arial,sans-serif,tahoma;
+	font-size:14px;
+}
+.fontheader{
+	font-family: verdana,arial,sans-serif;
+	font-size:14px;
+}
+table.gridtable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 0px;
+	padding: 2px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+	font-family:tahoma;
+	font-size:11px;
+}
+table.gridtable td {
+	border-width: 0px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+	font-family: verdana,arial,sans-serif;
+	font-size:10px;
+}
+table.gridtable2 {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: thin;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable2 th {
+	border-width: thin;
+	padding: 10px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+	font-family:tahoma;
+	font-size:11px;
+}
+table.gridtable2 td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+	font-family: verdana,arial,sans-serif;
+	font-size:10px;
+}
+table.bordered td {
+	border-width: 1px;
+	padding: 2px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+	font-family:tahoma;
+	font-size:11px;
+}
+table.bordered th {
+	border-width: 1px;
+	padding: 2px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+	font-family:tahoma;
+	font-size:11px;
+}
+.aa {
+	font-size: 10px;
+	color:red;
+	margin-top:5px;
+}
+<?php
+foreach($list_head as $rowx){
+	$id_aju 		= $rowx->id_aju;
+	$tgl_aju 		= $rowx->tgl_aju;
+	$insert_by 		= $rowx->insert_by;
+	$jumlah 		= $rowx->jumlah;
+	$approve_by 	= $rowx->approve_by;
+	$approve_date 	= $rowx->approve_date;
+}
+if($data_owner > 0){
+		foreach($data_owner as $row7){
+			$alamat		= $row7->alamat;
+			$kecamatan	= $row7->kecamatan;
+			$kota		= $row7->kota;
+			$no_telfon	= $row7->no_telfon;
+			$email1		= $row7->email1;
+			$nm_bank	= $row7->nm_bank;
+			$nm_bank2	= $row7->nm_bank2;
+			$no_bank	= $row7->no_bank;
+			$no_bank2	= $row7->no_bank2;
+			$cab_bank	= $row7->cab_bank;
+			$cab_bank2	= $row7->cab_bank2;
+			$an_bank	= $row7->an_bank;
+			$an_bank2	= $row7->an_bank2;
+		}
+	}
+if($data_penawaran > 0){
+		foreach($data_penawaran as $row5){
+			$pria					= $row5->pengantin_pria;
+			$wanita					= $row5->pengantin_wanita;
+			$tanggal_resepsi		= $row5->tanggal_respsi;
+			$tempat_resepsi1		= $row5->tempat_resepsi1;
+			$tempat_resepsi2		= $row5->tempat_resepsi2;
+			$tempat_resepsi3		= $row5->tempat_resepsi3;
+			$tempat1				= $row5->tempat1;
+		}
+	}
+?>
+</style> 
+<table width="100%" class="gridtable"  width='100%'>
+		<tr>
+			<th rowspan="4" width="30"><img src="<?=base_url()?>/assets/logo.jpg" height="80" width="180"></th>
+			<th align="right" width="20%"><?=$alamat?></th>
+			<th rowspan="4" width="30%">Surat Jalan<br><?=$id_spj?></th>
+		</tr>
+		<tr>
+			<th align="right"><?=$kecamatan?>, <?=$kota?></th>
+		</tr>
+		<tr>
+			<th align="right"><?=$no_telfon?></th>
+		</tr>
+		<tr>
+			<th align="right"><b><?=$email1?></b></th>
+		</tr>
+	</table>
+	<hr>
+ <table class="gridtable" width="100%">
+	<tr>
+		<td width="20%" colspan="1"><b>Pengantin</b></td>
+		<td width="30%" colspan="1"><b>: </b><?=strtoupper($pria." & ".$wanita)?></td>
+		<td width="20%" colspan="1"><b>Tanggal Resepsi</b></td>
+		<td width="30%" colspan="1"><b>: </b><?=$tanggal_resepsi?></td>
+	</tr>
+	<tr>
+		<td colspan="1"><b>Tempat Resepsi</b></td>
+		<td colspan="1"><b>: </b><?=strtoupper($tempat1)?></td>
+		<td colspan="1"><b>Alamat Resepsi</b></td>
+		<td colspan="1"><b>: </b><?=strtoupper($tempat_resepsi1." ".$tempat_resepsi2." ".$tempat_resepsi3)?></td>
+	</tr>
+	<tr>
+		<td colspan="1"><b>Tanggal Kirim</b></td>
+		<td colspan="1"><b>: </b><?=date("Y-m-d")?></td>
+		<td colspan="1"><b>Dikirim Oleh</b></td>
+		<td colspan="1"><b>: </b></td>
+	</tr>
+ </table>
+ <br>
+ <table class="gridtable2">
+	<tr>
+		<th width="2%" style="background-color:gray;text-align:center">No</th>
+		<th width="15%" style="background-color:gray">ID Barang</th>
+		<th width="15%" style="background-color:gray">Nama Barang</th>
+		<th width="15%" style="background-color:gray">Jumlah</th>
+	</tr>
+
+		<?php
+		$no=0;
+		if($list_print > 0){
+		foreach($list_print as $row){
+			$nm_barang = $row->nm_barang;
+			$id_barang = $row->id_barang;
+			$qty_out = $row->qty_out;
+			$no++;
+		?>
+		<tr>
+		<td width="2%" style="text-align:center"><?=$no?></td>
+			<td width="15%"><?=$id_barang?></td>
+			<td width="15%"><?=$nm_barang?></td>
+			<td width="15%" align="center"><?=$qty_out?>
+		</td>
+		</tr>
+		<?php }
+		} 
+		?>
+  </table>
+  <br>
+  <table class="gridtable" width="100%">
+	<tr>
+		<td width="30%" align="center"></td>
+		<td align="center"></td>
+		<td align="center" width="30%">Jakarta, <?=date("d F Y")?></td>
+	</tr>
+	<br>
+	<tr>
+		<td align="center">DIKIRIM OLEH</td>
+		<td align="center"></td>
+		<td align="center">DITERIMA OLEH</td>
+	</tr>
+	<tr>
+		<td height="70px"></td>
+		<td align="center"></td>
+		<td align="center"></td>
+	</tr>
+	<tr>
+		<td align="center">(____________________________)</td>
+		<td></td>
+		<td align="center">(____________________________)</td>
+	</tr>
+  </table>

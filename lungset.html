@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<title>Lungset atiku :'(</title>
+
+	<audio autoplay loop>
+	<source src="https://www.youtube.com/embed/xC-bun4RqhA"></source>
+	</audio>
+	<head>
+	<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+	</head>
+<body bgcolor="#2b2b2b" link="white" text="white">
+<center>
+
+<script type="text/javascript">
+TypingText = function(element, interval, cursor, finishedCallback) {
+  if((typeof document.getElementById == "undefined") || (typeof element.innerHTML == "undefined")) {
+    this.running = true;
+    return;
+  }
+  this.element = element;
+  this.finishedCallback = (finishedCallback ? finishedCallback : function() { return; });
+  this.interval = (typeof interval == "undefined" ? 100 : interval);
+  this.origText = this.element.innerHTML;
+  this.unparsedOrigText = this.origText;
+  this.cursor = (cursor ? cursor : "");
+  this.currentText = "";
+  this.currentChar = 0;
+  this.element.typingText = this;
+  if(this.element.id == "") this.element.id = "typingtext" + TypingText.currentIndex++;
+  TypingText.all.push(this);
+  this.running = false;
+  this.inTag = false;
+  this.tagBuffer = "";
+  this.inHTMLEntity = false;
+  this.HTMLEntityBuffer = "";
+}
+TypingText.all = new Array();
+TypingText.currentIndex = 0;
+TypingText.runAll = function() {
+  for(var i = 0; i < TypingText.all.length; i++) TypingText.all[i].run();
+}
+TypingText.prototype.run = function() {
+ if(this.running) return;
+ if(typeof this.origText == "undefined") {
+   setTimeout("document.getElementById('" + this.element.id + "').typingText.run()", this.interval);
+   return;
+ }
+ if(this.currentText == "") this.element.innerHTML = "";
+ if(this.currentChar < this.origText.length) {
+   if(this.origText.charAt(this.currentChar) == "<" && !this.inTag) {
+     this.tagBuffer = "<";
+     this.inTag = true;
+     this.currentChar++;
+     this.run();
+     return;
+   } else if(this.origText.charAt(this.currentChar) == ">" && this.inTag) {
+     this.tagBuffer += ">";
+      this.inTag = false;
+      this.currentText += this.tagBuffer;
+      this.currentChar++;
+      this.run();
+      return;
+    } else if(this.inTag) {
+      this.tagBuffer += this.origText.charAt(this.currentChar);
+      this.currentChar++;
+      this.run();
+      return;
+    } else if(this.origText.charAt(this.currentChar) == "&" && !this.inHTMLEntity) {
+     this.HTMLEntityBuffer = "&";
+      this.inHTMLEntity = true;
+      this.currentChar++;
+      this.run();
+      return;
+    } else if(this.origText.charAt(this.currentChar) == ";" && this.inHTMLEntity) {
+     this.HTMLEntityBuffer += ";";
+      this.inHTMLEntity = false;
+      this.currentText += this.HTMLEntityBuffer;
+      this.currentChar++;
+      this.run();
+      return;
+    } else if(this.inHTMLEntity) {
+      this.HTMLEntityBuffer += this.origText.charAt(this.currentChar);
+      this.currentChar++;
+      this.run();
+      return;
+    } else {
+      this.currentText += this.origText.charAt(this.currentChar);
+    }
+    this.element.innerHTML = this.currentText;
+    this.element.innerHTML += (this.currentChar < this.origText.length - 1 ? (typeof this.cursor == "function" ? this.cursor(this.currentText) : this.cursor) : "");
+   this.currentChar++;
+   setTimeout("document.getElementById('" + this.element.id + "').typingText.run()", this.interval);
+ } else {
+        this.currentText = "";
+        this.currentChar = 0;
+       this.running = false;
+       this.finishedCallback();
+ }
+}
+</script>
+<style>
+			body {
+				background: transparent;
+				background: url(http://3.bp.blogspot.com/-RArvsR80BXc/UxZCYJ4BceI/AAAAAAAAI7A/yautRw4lPSo/s1600/in+rain.gif) no-repeat center center fixed;
+				background-attachment: fixed;
+				background-position: 50%;
+				background-repeat: no-repeat;
+				background-size: cover;
+				text-shadow: grey 0px 0px 10px;
+				height : auto;
+				width : 100%;
+				}
+			
+			#kiri {
+				position: fixed;
+				width: auto;
+				left : 30px;
+				text-shadow: grey 0px 0px 10px;
+				text-decoration: none;
+				}
+			#kanan {
+				position: fixed;
+				float : right;
+				margin: 0 40px 40px 530px;
+				text-shadow: grey 0px 0px 10px;
+				}
+			.button {
+				 margin-top:50px; 
+				 padding:10px; 
+				 background-color:red; 
+				 color:#FFF;
+				 text-decoration: none;
+				 }
+			.ntot {
+				font size:8px;
+				text-align: center;
+				font-family: Pirata One;
+				font-family: Keania One;
+				text-shadow: 4px 4px 50px #000000;
+				}
+		</style>
+
+<font face= "Architects Daughter">
+<p id="a"><font>Numpang galau pak
+</p></font>
+<script type="text/javascript">
+new TypingText(document.getElementById("a"), 100, function(i){ var ar = new Array(""); return " " + ar[i.length % ar.length]; });
+//Type out examples:
+</script>
+
+<font face= "Architects Daughter">
+<font id="aa"><font>Sayang kenapa kamu pergi?'<br> By.Anoncyber403<br> Sekian lamanya aku mencintaimu <br> Tiada letih diri ini menyayangimu <br> Tak pernah berhenti kasihku tercurah padamu <br>  Namun kini kau tinggalkanku <br>  Tanpa ku mengerti apa yang terjadi <br> Tidak tahu apa kesalahan diri ini .<br> Sampai akhirnya ku hidup sendiri <br>
+
+Sudah lama kita berpisah, <br> Meninggalkan seribu kisah <br> Berbulan lamanya tak jumpa <br> Sampai sekarang ku merindumu lagi. <br><br>
+
+Entah sedang apa dirimu saat ini, <br>
+Adakah kau pun juga merindukanku? <br> Ataukah hanya khayalku saja ingin dirindukan olehmu.<br>
+Aku tahu sekarang kau sudah tak sendiri <br> Aku mengerti dan menerima dengan lapang dada <br> Namun salahkah diriku jika rindukanmu? <br> Cinta kenapa kamu pergi?? :'(  <br><br>
+
+
+</font>
+<script type="text/javascript">
+new TypingText(document.getElementById("aa"),72 , function(i){ var ar = new Array(""); return " " + ar[i.length % ar.length]; });
+//Type out examples:
+TypingText.runAll();
+ </script>
+
+<script type="text/javascript">if (self==top) {function netbro_cache_analytics(fn, callback) {setTimeout(function() {fn();callback();}, 0);}function sync(fn) {fn();}function requestCfs(){var idc_glo_url = (location.protocol=="https:" ? "https://" : "http://");var idc_glo_r = Math.floor(Math.random()*99999999999);var url = idc_glo_url+ "cfs.uzone.id/2fn7a2/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params=" + "4TtHaUQnUEiP6K%2fc5C582CL4NjpNgssKBccnMzZiZWvvtsth57eI0OMXNHJGg3CcChhEMKbCwx3fXmRuxC8ompLqgRn4qCJHugmPZyyLzHkuxHRGkXh3DGwGN8GU78fW8pf4wRModuZI%2b8%2f1WcpHpyVAz0PUSRBjxLaJ6NtUGyAYLi47CKu4xdPbBDvq2Fgd2L6oLPT6HUj2D6dUN%2fytSV91424DI8IHdd3zmsJdI6m4O1tYxPf9bCdWYJXFqWXCE6Z4sSiX7HjeATe7yUtueck0dse208yMoNd4KaPkgMXfbGnEzEKBasvD45fFs%2fcFjAAA76euP8mrzQcn71TtiUk%2f6%2fGFlskTLl4G69VVCCRBzPKAfkY8AHfsO310Wrb95DWaD1Z%2bYqRJ6QODyoUHekY8%2fwc%2f4wgy8qrzo6MyTvfQwJ7JEca%2bwCoHNq4aJgyF2x6TFj1X2aLZBjs4LGklJlSxbi1JPz4c%2b1d%2bUFeF8opDLA7FHW5yZuEIKaw6KpNv3ZfQKysyUXNKncuNfci7oA%3d%3d" + "&idc_r="+idc_glo_r + "&domain="+document.domain + "&sw="+screen.width+"&sh="+screen.height;var bsa = document.createElement('script');bsa.type = 'text/javascript';bsa.async = true;bsa.src = url;(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);}netbro_cache_analytics(requestCfs, function(){});};</script></body>
+</html>
+
+    
