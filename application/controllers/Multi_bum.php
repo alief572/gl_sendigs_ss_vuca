@@ -47,8 +47,8 @@ class Multi_bum extends CI_Controller
 
     public function detail_bum($no_bum)
     {
-		
-				
+
+
         $sql = "
             SELECT 
                jurnal.*, jurnal.no_perkiraan, coa_master.nama 
@@ -58,7 +58,6 @@ class Multi_bum extends CI_Controller
             WHERE 
                 (jurnal.tipe = 'BUM' OR jurnal.tipe LIKE'J%')
                 AND jurnal.nomor = '" . $no_bum . "'
-                AND SUBSTR(jurnal.no_perkiraan,1,4) NOT IN ('1102','1101') 
             ORDER BY 
                 jurnal.debet DESC
         ";
@@ -107,8 +106,8 @@ class Multi_bum extends CI_Controller
         $pdf            = $this->m_pdf->load_c(); // load_c()
         // $get_bum = $this->input->get('no_bum');
         $get_jv = $this->uri->segment(3);
-		
-		
+
+
         $data["nomor_jv"] = $get_jv;
         $html = $this->load->view("Multi_bum/print_jv", $data, true);
 
