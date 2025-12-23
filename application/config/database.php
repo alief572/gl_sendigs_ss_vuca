@@ -153,10 +153,10 @@ $db['default'] = array(
 
 	'dsn'	=> '', //http://103.228.117.98/gl/index.php/login
 
-	'hostname' => 'db',
-	'username' => 'root',
-	'password' => 'root',
-	'database' => 'db_sendigs_gl_ss',
+	'hostname' => 'localhost',
+	'username' => 'sendigs_ss',
+	'password' => 'kas3ISsj)(*ushsHAdj',
+	'database' => 'db_sendigs_ss_vuca',
 	'dbdriver' => 'mysqli',
 
 	'dbprefix' => '',
@@ -189,10 +189,10 @@ $db['default'] = array(
 );
 $db['accounting'] = array(
 	'dsn'	=> '',
-	'hostname' => 'db',
-	'username' => 'root',
-	'password' => 'root',
-	'database' => 'db_sendigs_gl_ss',
+	'hostname' => 'localhost',
+	'username' => 'sendigs_ss',
+	'password' => 'kas3ISsj)(*ushsHAdj',
+	'database' => 'db_sendigs_ss_vuca',
 
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
