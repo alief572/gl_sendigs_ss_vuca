@@ -17,10 +17,12 @@ class Jurnal_model extends CI_Model
 			return 0;
 		}
 	}
-	public function list_jv($bln_aktif, $thn_aktif)
+	public function list_jv($bln_aktif = null, $thn_aktif = null)
 	{
 		$kode_cabang	= $this->session->userdata('kode_cabang');
-		$query = "SELECT * from javh where bulan='$bln_aktif' and tahun='$thn_aktif' and nomor like '$kode_cabang%' order by nomor desc";
+		$where_thn = (!empty($thn_aktif)) ? ' AND tahun = "' . $thn_aktif . '"' : '';
+		$where_bln = (!empty($bln_aktif)) ? ' AND tahun = "' . $bln_aktif . '"' : '';
+		$query = "SELECT * from javh where nomor like '$kode_cabang%' " . $where_bln . " " . $where_thn . " order by nomor desc";
 		$query = $this->db->query($query);
 		if ($query->num_rows() > 0) {
 			return $query->result();
@@ -28,7 +30,7 @@ class Jurnal_model extends CI_Model
 			return 0;
 		}
 	}
-	
+
 	public function list_jv_excel($bln_aktif, $thn_aktif)
 	{
 		$kode_cabang	= $this->session->userdata('kode_cabang');
@@ -76,7 +78,7 @@ class Jurnal_model extends CI_Model
 		INNER JOIN coa_master ON coa_master.no_perkiraan=jurnal.no_perkiraan 
 		WHERE jurnal.tipe='$tipe_jurnal' and jurnal.nomor='$nomor_jurnal'
         ORDER BY jurnal.debet DESC";
-		
+
 		$query	= $this->db->query($query);
 		if ($query->num_rows() > 0) {
 			return $query->result();
@@ -539,7 +541,7 @@ class Jurnal_model extends CI_Model
 			return 0;
 		}
 	}
-	
+
 	public function list_dana_keluar2()
 	{
 		$kode_cabang	= $this->session->userdata('kode_cabang'); // Contoh hasil : 202-A
