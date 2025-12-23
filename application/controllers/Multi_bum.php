@@ -19,7 +19,7 @@ class Multi_bum extends CI_Controller
         $controller = ucfirst(strtolower($this->uri->segment(1)));
         //echo "<pre>";print_r($this->session->userdata());exit;
         $records        = array();
-        $Cabang_Pilih    = $this->session->userdata('nomor_cabang');
+        $Cabang_Pilih   = $this->session->userdata('nomor_cabang');
         if (empty($Cabang_Pilih)) $Cabang_Pilih    = $Cabang_Pilih;
         $Datefr            = date('Y-m-01');
         $Datetl            = date('Y-m-d');

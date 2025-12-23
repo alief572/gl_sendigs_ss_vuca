@@ -21,9 +21,7 @@ class Jurnal extends CI_Controller
 		$this->load->helper('menu');
 	}
 
-	public function index()
-	{
-	}
+	public function index() {}
 
 	public function jvcost()
 	{
@@ -54,18 +52,21 @@ class Jurnal extends CI_Controller
 	{
 		$data['judul'] 			= "Jurnal Voucher";
 		$cek_periode_aktif			= $this->Model_latihan->cek_periode_aktif();
-		if ($cek_periode_aktif > 0) {
-			foreach ($cek_periode_aktif as $row_periode_aktif) {
-				$tgl_periode_aktif	= $row_periode_aktif->periode;
-				$bln_aktif			= substr($tgl_periode_aktif, 0, 2);
-				$thn_aktif			= substr($tgl_periode_aktif, 3, 4);
-			}
-		}
+
+		$bln_aktif = null;
+		$thn_aktif = null;
+		// if ($cek_periode_aktif > 0) {
+		// 	foreach ($cek_periode_aktif as $row_periode_aktif) {
+		// 		$tgl_periode_aktif	= $row_periode_aktif->periode;
+		// 		$bln_aktif			= substr($tgl_periode_aktif, 0, 2);
+		// 		$thn_aktif			= substr($tgl_periode_aktif, 3, 4);
+		// 	}
+		// }
 		$data['data_listjv']		= $this->Jurnal_model->list_jv($bln_aktif, $thn_aktif);
 
 		$this->load->view('jurnal/v_list_jv', $data);
 	}
-	
+
 	public function list_jv_excel()
 	{
 		$data['judul'] 			= "Jurnal Voucher";
@@ -231,8 +232,7 @@ class Jurnal extends CI_Controller
 			$date2_ = $this->input->post('tanggal2');
 			$date2 = str_replace(" - ", "_", $date2_);
 			redirect('jurnal/view_excel_detail/' . $date . '/' . $date2);
-		}
-		else {
+		} else {
 			// $tanggal	= date("Y-m-d", strtotime($this->input->post('tanggal'))); // dd-mm-yyyy --> yyyy-mm-dd
 			// $tanggal2	= date("Y-m-d", strtotime($this->input->post('tanggal2'))); // dd-mm-yyyy --> yyyy-mm-dd
 			$tanggal_	= $this->input->post('tanggal');
@@ -281,7 +281,7 @@ class Jurnal extends CI_Controller
 
 		$this->load->view("jurnal/view_excel", $data);
 	}
-	
+
 	function view_excel_detail()
 	{
 
@@ -365,7 +365,7 @@ class Jurnal extends CI_Controller
 			$date2 = $this->input->post('tanggal2');
 			// $date2 = str_replace(" - ", "_", $date2);
 			redirect('jurnal/view_excel_bum_detail/' . $date . '/' . $date2);
-		}else{
+		} else {
 			$tanggal	= date_format(new DateTime($this->input->post('tanggal')), "Y-m-d"); // dd-mm-yyyy --> yyyy-mm-dd
 			$tanggal2	= date_format(new DateTime($this->input->post('tanggal2')), "Y-m-d"); // dd-mm-yyyy --> yyyy-mm-dd
 
@@ -412,7 +412,7 @@ class Jurnal extends CI_Controller
 
 		$this->load->view("jurnal/view_excel_bum", $data);
 	}
-	
+
 	function view_excel_bum_detail()
 	{
 
@@ -951,7 +951,7 @@ class Jurnal extends CI_Controller
 			'waktu'			=> date('Y-m-d H:i:s')
 		);
 		$this->db->insert("log_transaksi", $in_log_transaksi);
-		
+
 		$cek_periode_aktif			= $this->Jurnal_model->cek_periode_aktif();
 		if ($cek_periode_aktif > 0) {
 			foreach ($cek_periode_aktif as $row_periode_aktif) {
@@ -960,7 +960,7 @@ class Jurnal extends CI_Controller
 				$thn_aktif			= substr($tgl_periode_aktif, 3, 4);
 			}
 		}
-		
+
 		$awal = 1;
 		$akhir = 31;
 
@@ -975,7 +975,7 @@ class Jurnal extends CI_Controller
 		$data['pesan_on']				= 1;
 
 		$data['judul'] = "Bukti Uang Keluar";
-		$data['list_data'] = $this->Jurnal_model->list_dana_keluar($var_tgl_awal,$var_tgl_akhir);
+		$data['list_data'] = $this->Jurnal_model->list_dana_keluar($var_tgl_awal, $var_tgl_akhir);
 		$this->load->view('jurnal/v_list_dana_keluar', $data);
 
 		// $note_batal			= "Batal BUK No. " . $id_buk;
@@ -1145,10 +1145,10 @@ class Jurnal extends CI_Controller
 			$var_tgl_akhir			= $thn_aktif . "-" . $bln_aktif . "-" . $akhir;
 			$data['var_tgl_akhir']	= $thn_aktif . "-" . $bln_aktif . "-" . $akhir;
 		}
-		
+
 		$data['tanggal_awal'] = date("01-m-Y", strtotime($var_tgl_awal));
 		$data['tanggal_akhir'] = date("t-m-Y", strtotime($var_tgl_akhir));
-		
+
 		$data['list_data'] = $this->Jurnal_model->list_dana_masuk($var_tgl_awal, $var_tgl_akhir);
 		$this->load->view('jurnal/v_list_dana_masuk', $data);
 
@@ -1244,7 +1244,7 @@ class Jurnal extends CI_Controller
 	{
 		// print_r($this->input->post());
 		// exit;
-		
+
 		if ($this->input->post()) {
 			$hasil	= $this->Jurnal_model->inputDanaMasuk();
 			echo "<script> alert('Data berhasil di simpan!')";
