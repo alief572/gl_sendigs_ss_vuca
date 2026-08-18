@@ -414,12 +414,12 @@
 											</td>
 											<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
 												<?=
-													$rp_cmonth_biaya		= "Rp. " . number_format($cmonth_biaya52, 0, ',', '.');
+												$rp_cmonth_biaya		= "Rp. " . number_format($cmonth_biaya52, 0, ',', '.');
 												?>
 											</td>
 											<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
 												<?=
-													$rp_YTD_biaya				= "Rp. " . number_format($YTD_biaya52, 0, ',', '.');
+												$rp_YTD_biaya				= "Rp. " . number_format($YTD_biaya52, 0, ',', '.');
 												?>
 											</td>
 										</tr>
@@ -476,12 +476,12 @@
 											</td>
 											<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
 												<?=
-													$rp_cmonth_biaya61		= "Rp. " . number_format($cmonth_biaya61, 0, ',', '.');
+												$rp_cmonth_biaya61		= "Rp. " . number_format($cmonth_biaya61, 0, ',', '.');
 												?>
 											</td>
 											<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
 												<?=
-													$rp_YTD_biaya61				= "Rp. " . number_format($YTD_biaya61, 0, ',', '.');
+												$rp_YTD_biaya61				= "Rp. " . number_format($YTD_biaya61, 0, ',', '.');
 												?>
 											</td>
 										</tr>
@@ -553,12 +553,12 @@
 											</td>
 											<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
 												<?=
-													$rp_cmonth_biaya		= "Rp. " . number_format($cmonth_biaya62, 0, ',', '.');
+												$rp_cmonth_biaya		= "Rp. " . number_format($cmonth_biaya62, 0, ',', '.');
 												?>
 											</td>
 											<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
 												<?=
-													$rp_YTD_biaya				= "Rp. " . number_format($YTD_biaya62, 0, ',', '.');
+												$rp_YTD_biaya				= "Rp. " . number_format($YTD_biaya62, 0, ',', '.');
 												?>
 											</td>
 										</tr>
@@ -635,12 +635,12 @@
 											</td>
 											<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
 												<?=
-													$rp_cmonth_biaya2		= "Rp. " . number_format($cmonth_biaya2, 0, ',', '.');
+												$rp_cmonth_biaya2		= "Rp. " . number_format($cmonth_biaya2, 0, ',', '.');
 												?>
 											</td>
 											<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
 												<?=
-													$rp_YTD_biaya2				= "Rp. " . number_format($YTD_biaya2, 0, ',', '.');
+												$rp_YTD_biaya2				= "Rp. " . number_format($YTD_biaya2, 0, ',', '.');
 												?>
 											</td>
 										</tr>
@@ -915,12 +915,12 @@
 											</td>
 											<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
 												<?=
-													$rp_cmonth_biaya3		= "Rp. " . number_format($cmonth_biaya3, 0, ',', '.');
+												$rp_cmonth_biaya3		= "Rp. " . number_format($cmonth_biaya3, 0, ',', '.');
 												?>
 											</td>
 											<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
 												<?=
-													$rp_YTD_biaya3				= "Rp. " . number_format($YTD_biaya3, 0, ',', '.');
+												$rp_YTD_biaya3				= "Rp. " . number_format($YTD_biaya3, 0, ',', '.');
 												?>
 											</td>
 										</tr>

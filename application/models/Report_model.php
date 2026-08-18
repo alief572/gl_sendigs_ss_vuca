@@ -1765,17 +1765,16 @@ class Report_model extends CI_Model
 			return 0;
 		}
 	}
-	
-	
+
+
 	## SYAM REPORT PIUTANG
 
 	public function get_ar($var_bulan, $var_tahun, $cust)
 	{
-		if ($cust =='0'){
-		$query 	= "SELECT * FROM ar WHERE bln='$var_bulan' AND thn='$var_tahun' ORDER BY no_invoice ASC";
-		}
-		else{
-		$query 	= "SELECT * FROM ar WHERE bln='$var_bulan' AND thn='$var_tahun' AND id_klien='$cust' ORDER BY no_invoice ASC";
+		if ($cust == '0') {
+			$query 	= "SELECT * FROM ar WHERE bln='$var_bulan' AND thn='$var_tahun' ORDER BY no_invoice ASC";
+		} else {
+			$query 	= "SELECT * FROM ar WHERE bln='$var_bulan' AND thn='$var_tahun' AND id_klien='$cust' ORDER BY no_invoice ASC";
 		}
 		$query	= $this->db->query($query);
 		if ($query->num_rows() > 0) {
@@ -1788,11 +1787,10 @@ class Report_model extends CI_Model
 
 	public function get_ar_total($var_bulan, $var_tahun, $cust)
 	{
-		if ($cust =='0'){
-		$query 	= "SELECT no_invoice, nama_klien, sum(saldo_awal)as saldo_awal, sum(debet) as debet, sum(kredit) as kredit, sum(saldo_akhir) as saldo_akhir FROM ar WHERE bln='$var_bulan' AND thn='$var_tahun'  GROUP BY id_klien";
-		}
-		else{
-		$query 	= "SELECT  no_invoice, nama_klien, sum(saldo_awal)as saldo_awal, sum(debet) as debet, sum(kredit) as kredit, sum(saldo_akhir) as saldo_akhir FROM ar WHERE bln='$var_bulan' AND thn='$var_tahun' AND id_klien='$cust' GROUP BY id_klien";
+		if ($cust == '0') {
+			$query 	= "SELECT no_invoice, nama_klien, sum(saldo_awal)as saldo_awal, sum(debet) as debet, sum(kredit) as kredit, sum(saldo_akhir) as saldo_akhir FROM ar WHERE bln='$var_bulan' AND thn='$var_tahun'  GROUP BY id_klien";
+		} else {
+			$query 	= "SELECT  no_invoice, nama_klien, sum(saldo_awal)as saldo_awal, sum(debet) as debet, sum(kredit) as kredit, sum(saldo_akhir) as saldo_akhir FROM ar WHERE bln='$var_bulan' AND thn='$var_tahun' AND id_klien='$cust' GROUP BY id_klien";
 		}
 		$query	= $this->db->query($query);
 		if ($query->num_rows() > 0) {
@@ -1802,44 +1800,41 @@ class Report_model extends CI_Model
 		}
 	}
 
-	public function pilih_klien(){
+	public function pilih_klien()
+	{
 		$aMenu		= array();
 
-//		$where  ="status='Aktif'";
+		//		$where  ="status='Aktif'";
 
-		if(!empty($where)){
-
-			//$this->db->distinct();
-			$query = $this->db->get_where(DBACC.".ms_customer",$where);
-
-		}else{
+		if (!empty($where)) {
 
 			//$this->db->distinct();
-			$query = $this->db->get(DBACC.".ms_customer");
+			$query = $this->db->get_where(DBACC . ".ms_customer", $where);
+		} else {
 
+			//$this->db->distinct();
+			$query = $this->db->get(DBACC . ".ms_customer");
 		}
 
 		$results	= $query->result_array();
-		if($results){
-			foreach($results as $key=>$vals){
+		if ($results) {
+			foreach ($results as $key => $vals) {
 				$aMenu[$vals['id_klien']]	= $vals['nama_klien'];
 			}
 		}
 		return $aMenu;
-
 	}
-	
-	
-	
+
+
+
 	## SYAM REPORT HUTANG
 
 	public function get_ap($var_bulan, $var_tahun, $cust)
 	{
-		if ($cust =='0'){
-		$query 	= "SELECT * FROM ap WHERE bln='$var_bulan' AND thn='$var_tahun' ORDER BY no_invoice ASC";
-		}
-		else{
-		$query 	= "SELECT * FROM ap WHERE bln='$var_bulan' AND thn='$var_tahun' AND id_klien='$cust' ORDER BY no_invoice ASC";
+		if ($cust == '0') {
+			$query 	= "SELECT * FROM ap WHERE bln='$var_bulan' AND thn='$var_tahun' ORDER BY no_invoice ASC";
+		} else {
+			$query 	= "SELECT * FROM ap WHERE bln='$var_bulan' AND thn='$var_tahun' AND id_klien='$cust' ORDER BY no_invoice ASC";
 		}
 		$query	= $this->db->query($query);
 		if ($query->num_rows() > 0) {
@@ -1852,11 +1847,10 @@ class Report_model extends CI_Model
 
 	public function get_ap_total($var_bulan, $var_tahun, $cust)
 	{
-		if ($cust =='0'){
-		$query 	= "SELECT no_invoice, nama_klien, sum(saldo_awal)as saldo_awal, sum(debet) as debet, sum(kredit) as kredit, sum(saldo_akhir) as saldo_akhir FROM ap WHERE bln='$var_bulan' AND thn='$var_tahun'  GROUP BY id_klien";
-		}
-		else{
-		$query 	= "SELECT  no_invoice, nama_klien, sum(saldo_awal)as saldo_awal, sum(debet) as debet, sum(kredit) as kredit, sum(saldo_akhir) as saldo_akhir FROM ap WHERE bln='$var_bulan' AND thn='$var_tahun' AND id_klien='$cust' GROUP BY id_klien";
+		if ($cust == '0') {
+			$query 	= "SELECT no_invoice, nama_klien, sum(saldo_awal)as saldo_awal, sum(debet) as debet, sum(kredit) as kredit, sum(saldo_akhir) as saldo_akhir FROM ap WHERE bln='$var_bulan' AND thn='$var_tahun'  GROUP BY id_klien";
+		} else {
+			$query 	= "SELECT  no_invoice, nama_klien, sum(saldo_awal)as saldo_awal, sum(debet) as debet, sum(kredit) as kredit, sum(saldo_akhir) as saldo_akhir FROM ap WHERE bln='$var_bulan' AND thn='$var_tahun' AND id_klien='$cust' GROUP BY id_klien";
 		}
 		$query	= $this->db->query($query);
 		if ($query->num_rows() > 0) {
@@ -1865,31 +1859,29 @@ class Report_model extends CI_Model
 			return 0;
 		}
 	}
-	
-	public function pilih_vendor(){
+
+	public function pilih_vendor()
+	{
 		$aMenu		= array();
 
-//		$where  ="status='Aktif'";
+		//		$where  ="status='Aktif'";
 
-		if(!empty($where)){
-
-			//$this->db->distinct();
-			$query = $this->db->get_where(DBACC.".ms_vendor",$where);
-
-		}else{
+		if (!empty($where)) {
 
 			//$this->db->distinct();
-			$query = $this->db->get(DBACC.".ms_vendor");
+			$query = $this->db->get_where(DBACC . ".ms_vendor", $where);
+		} else {
 
+			//$this->db->distinct();
+			$query = $this->db->get(DBACC . ".ms_vendor");
 		}
 
 		$results	= $query->result_array();
-		if($results){
-			foreach($results as $key=>$vals){
+		if ($results) {
+			foreach ($results as $key => $vals) {
 				$aMenu[$vals['id_vendor']]	= $vals['nama'];
 			}
 		}
 		return $aMenu;
-
 	}
 }
