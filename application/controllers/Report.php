@@ -791,8 +791,8 @@ class Report extends CI_Controller
 		$bln_periode = $this->input->post('bulan_periode');
 		$thn_periode = $this->input->post('tahun_periode');
 		//$blnthn_periode = $bln_periode."-".$thn_periode;
-        $kode_cabang = $this->session->userdata('singkat_cbg');
-		
+		$kode_cabang = $this->session->userdata('singkat_cbg');
+
 		if ($bln_periode > 9) {
 			$blnthn_periode = $bln_periode . "-" . $thn_periode;
 		} else {
@@ -822,8 +822,8 @@ class Report extends CI_Controller
 	{
 		$data['judul']			= "Laporan Ledger";
 		$cek_periode_aktif			= $this->Report_model->cek_periode_aktif();
-		
-				
+
+
 		if ($cek_periode_aktif > 0) {
 			foreach ($cek_periode_aktif as $row_periode_aktif) {
 				$tgl_periode_aktif	= $row_periode_aktif->periode;
@@ -838,20 +838,20 @@ class Report extends CI_Controller
 
 	function tampilkan_ledger()
 	{
-		
-		
+
+
 		$data['judul']			= "Laporan Ledger";
 
 		if ($this->input->post('tampilkan') == "View Excel") {
 			$var_bln					= $this->input->post('bulan_ledger');
 			$var_thn					= $this->input->post('tahun_ledger');
-			$var_filter_nokir			= $this->input->post('filter_nokir'); 
+			$var_filter_nokir			= $this->input->post('filter_nokir');
 			$var_filter_nokir2			= $this->input->post('filter_nokir2');
 			$filter_nokir = substr($var_filter_nokir, 0, 10);
 			$filter_nokir2 = substr($var_filter_nokir2, 0, 10);
-			
-			
-			
+
+
+
 			redirect('report/excel_ledger/' . $var_bln . '/' . $var_thn . '/' . $filter_nokir . '/' . $filter_nokir2);
 			//redirect('report/ledger');
 
@@ -865,8 +865,8 @@ class Report extends CI_Controller
 				}
 			}
 			$data['data_perkiraan']		= $this->Jurnal_model->get_noperkiraan($bln_aktif, $thn_aktif);
-			
-			
+
+
 			$var_bulan					= $this->input->post('bulan_ledger');
 			$var_tahun					= $this->input->post('tahun_ledger');
 			$data['bln_ledger']			= $this->input->post('bulan_ledger');
@@ -879,7 +879,7 @@ class Report extends CI_Controller
 			$filter_nokir2 = substr($var_filter_nokir2, 0, 10);
 
 			$awal = 1;
-			$akhir = date("t",strtotime($var_tahun . "-" . $var_bulan ."-01"));
+			$akhir = date("t", strtotime($var_tahun . "-" . $var_bulan . "-01"));
 			$enol = 0;
 			if ($var_bulan > 9) {
 				$var_tgl_awal = $var_tahun . "-" . $var_bulan . "-0" . $awal;
@@ -892,15 +892,15 @@ class Report extends CI_Controller
 				$var_tgl_akhir = $var_tahun . "-" . $enol . $var_bulan . "-" . $akhir;
 				$data['var_tgl_akhir'] = $var_tahun . "-" . $enol . $var_bulan . "-" . $akhir;
 			}
-			
-			
+
+
 
 			$data['coa_sa']				= $this->Report_model->get_coa_sa($filter_nokir, $filter_nokir2, $var_bulan, $var_tahun);
 			//$data['detail_jurnal']		= $this->Report_model->get_detail_jurnal($filter_nokir,$filter_nokir2,$var_tgl_awal,$var_tgl_akhir);
 
 			// print_r($data['coa_sa']);
 			// exit;
-			
+
 			$this->load->view("report/v_list_ledger", $data);
 		}
 	}
@@ -920,20 +920,20 @@ class Report extends CI_Controller
 		$awal = 1;
 		$akhir = 31;
 		$enol = 0;
-		
+
 		if ($var_bulan > 9) {
-				$var_tgl_awal = $var_tahun . "-" . $var_bulan . "-0" . $awal;
-				$data['var_tgl_awal'] = $var_tahun . "-" . $var_bulan . "-0" . $awal;
-				$var_tgl_akhir = $var_tahun . "-" . $var_bulan . "-" . $akhir;
-				$data['var_tgl_akhir'] = $var_tahun . "-" . $var_bulan . "-" . $akhir;
-			} else {
-				$var_tgl_awal = $var_tahun . "-" . $enol . $var_bulan . "-0" . $awal;
-				$data['var_tgl_awal'] = $var_tahun . "-" . $enol . $var_bulan . "-0" . $awal;
-				$var_tgl_akhir = $var_tahun . "-" . $enol . $var_bulan . "-" . $akhir;
-				$data['var_tgl_akhir'] = $var_tahun . "-" . $enol . $var_bulan . "-" . $akhir;
-			}
-			
-		
+			$var_tgl_awal = $var_tahun . "-" . $var_bulan . "-0" . $awal;
+			$data['var_tgl_awal'] = $var_tahun . "-" . $var_bulan . "-0" . $awal;
+			$var_tgl_akhir = $var_tahun . "-" . $var_bulan . "-" . $akhir;
+			$data['var_tgl_akhir'] = $var_tahun . "-" . $var_bulan . "-" . $akhir;
+		} else {
+			$var_tgl_awal = $var_tahun . "-" . $enol . $var_bulan . "-0" . $awal;
+			$data['var_tgl_awal'] = $var_tahun . "-" . $enol . $var_bulan . "-0" . $awal;
+			$var_tgl_akhir = $var_tahun . "-" . $enol . $var_bulan . "-" . $akhir;
+			$data['var_tgl_akhir'] = $var_tahun . "-" . $enol . $var_bulan . "-" . $akhir;
+		}
+
+
 		$data['coa_sa']				= $this->Report_model->get_coa_sa($filter_nokir, $filter_nokir2, $var_bulan, $var_tahun);
 		//$data['detail_jurnal']		= $this->Report_model->get_detail_jurnal($filter_nokir, $filter_nokir2, $var_tgl_awal, $var_tgl_akhir);
 
@@ -1069,20 +1069,20 @@ class Report extends CI_Controller
 				$this->db->query("INSERT INTO periode (periode,stsaktif,stspost,stslock,kdcab) VALUES ('$nu_tgl_periode_aktif','O','1','0','$singkat_cbg')");
 			}
 		}
-                                if ($this->db->trans_status() !== TRUE) {
-									$this->db->trans_rollback();
-									$rows_Return	= array(
-										'pesan'			=> 'Posting process failed. Please try again later ...',
-										'status'		=> 3
-									);
-								} else {
-									$this->db->trans_commit();
-									$rows_Return	= array(
-										'pesan'		=> 'Posting process success. Thanks ...',
-										'status'	=> 1
+		if ($this->db->trans_status() !== TRUE) {
+			$this->db->trans_rollback();
+			$rows_Return	= array(
+				'pesan'			=> 'Posting process failed. Please try again later ...',
+				'status'		=> 3
+			);
+		} else {
+			$this->db->trans_commit();
+			$rows_Return	= array(
+				'pesan'		=> 'Posting process success. Thanks ...',
+				'status'	=> 1
 
-									);
-								}
+			);
+		}
 		$data['proses'] = 1;
 		$this->load->view('report/v_tutup_bulan', $data);
 	}
@@ -1571,5 +1571,4 @@ class Report extends CI_Controller
 		$data['rekap'] = $rekap;
 		$this->load->view("report/v_list_umur_piutang", $data);
 	}
-	
 }
