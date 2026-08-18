@@ -20,9 +20,15 @@ class Jurnal_model extends CI_Model
 	public function list_jv($bln_aktif = null, $thn_aktif = null)
 	{
 		$kode_cabang	= $this->session->userdata('kode_cabang');
-		$where_thn = (!empty($thn_aktif)) ? ' AND tahun = "' . $thn_aktif . '"' : '';
-		$where_bln = (!empty($bln_aktif)) ? ' AND tahun = "' . $bln_aktif . '"' : '';
-		$query = "SELECT * from javh where nomor like '$kode_cabang%' " . $where_bln . " " . $where_thn . " order by nomor desc";
+		$where_bln = '';
+		$where_thn = '';
+		if (!empty($bln_aktif)) {
+			$where_bln = ' and bulan = "' . $bln_aktif . '"';
+		}
+		if (!empty($thn_aktif)) {
+			$where_thn = ' and tahun = "' . $thn_aktif . '"';
+		}
+		$query = "SELECT * FROM javh WHERE nomor LIKE '$kode_cabang%' " . $where_bln . " " . $where_thn . " order by nomor desc";
 		$query = $this->db->query($query);
 		if ($query->num_rows() > 0) {
 			return $query->result();

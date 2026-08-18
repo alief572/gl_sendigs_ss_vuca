@@ -82,7 +82,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 							foreach ($rows_data as $keyR => $valR) {
 								$intI++;
 
-								$data_uang_terima_dari = $this->db->query("SELECT * FROM jurnal WHERE tipe='BUM' and nomor='$valR->nomor' and no_perkiraan not like '11%'")->result();
+								$data_uang_terima_dari = $this->db->query("SELECT * FROM jurnal WHERE tipe='BUM' and nomor='$valR->nomor' and no_perkiraan like '%1101-02-01%'")->result();
 
 								if ($data_uang_terima_dari > 0) {
 									foreach ($data_uang_terima_dari as $row_jurnal1) {
@@ -141,18 +141,24 @@ error_reporting(E_ALL & ~E_NOTICE);
 			</div>
 		</div>
 	</form>
-	<div class="modal fade" id="Mymodal">
-		<div class="modal-dialog" style="width:80%">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="Mymodal-title">Detail Data</h4>
+	<div class="modal fade" id="Mymodal" role="dialog" aria-labelledby="Mymodal-title">
+		<div class="modal-dialog modal-lg" style="width: 85%; max-width: 1200px;">
+			<div class="modal-content" style="border-radius: 8px; overflow: hidden; box-shadow: 0 5px 25px rgba(0,0,0,0.2);">
+				<div class="modal-header" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: #fff; padding: 15px 20px;">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #fff; opacity: 0.8; font-size: 24px; text-shadow: none;">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="Mymodal-title" style="font-weight: 600; font-size: 16px;">
+						<i class="fa fa-file-text-o" style="margin-right: 8px;"></i> Detail Data BUM
+					</h4>
 				</div>
-				<div class="modal-body" id="Mymodal-list">
+				<div class="modal-body" id="Mymodal-list" style="padding: 20px; background-color: #f8fafc; max-height: calc(100vh - 200px); overflow-y: auto;">
 
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<div class="modal-footer" style="padding: 12px 20px; background-color: #fff; border-top: 1px solid #e2e8f0;">
+					<button type="button" class="btn btn-default" data-dismiss="modal" style="padding: 6px 18px; font-weight: 500;">
+						<i class="fa fa-times" style="margin-right: 5px;"></i> Tutup
+					</button>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->

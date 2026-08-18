@@ -172,7 +172,7 @@ class M_list extends CI_Model
                 a.user_id,
                 a.* from jarh as a WHERE 1=1
                 AND a.kdcab = '$cab'
-				AND a.jml!=0
+				AND a.jml != 0
                 AND (a.tgl between '$tgl_awal' and '$tgl_akhir') order by a.nomor desc");
 		return $a->result();
 	}
